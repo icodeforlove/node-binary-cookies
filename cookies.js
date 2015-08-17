@@ -155,8 +155,9 @@ Cookies.prototype._parseCookieData = function(pageIndex, cookieIndex) {
   var bufPos = 0;
   var macEpochOffset = 978307200;
   data.unknown = c.buf.readInt32LE(bufPos);
-  data.flags = c.buf.readInt32LE(bufPos += 4);
-  data.unknown2 = c.buf.readUInt32LE(bufPos += 8);
+  data.unknown2 = c.buf.readInt32LE(bufPos += 4);
+  data.flags = c.buf.readUInt32LE(bufPos += 4);
+  data.unknown3 = c.buf.readInt32LE(bufPos += 4);
   _.each(['url', 'name', 'path', 'value'], function(key) {
     offsets[key] = c.buf.readInt32LE(bufPos += 4);
     numOffsets.push(offsets[key]);
